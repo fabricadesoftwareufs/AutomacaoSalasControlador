@@ -1,0 +1,7 @@
+<map id="EnvironmentVariablesService" name="EnvironmentVariablesService">
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,248,243,633"/>
+<area shape="rect" id="Node000002" href="$structHardwareRecord.html" title=" " alt="" coords="5,5,124,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,170,96,231,90,233,78,171"/>
+<area shape="rect" id="Node000003" href="$structMonitoramento.html" title=" " alt="" coords="148,35,259,141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,141,178,232,172,231,190,140"/>
+</map>

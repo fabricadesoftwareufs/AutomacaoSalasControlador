@@ -55,6 +55,12 @@ Then it must install the libraries
 - Task by Makuna v1.1.6
 - PubSubClient by Nick O'Leary v2.8
 
+Board Manager
+
+- esp32 by Espressif Systems v1.0.6
+
+These files can be found in the **arduino-ide-libs** folder
+
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running.
