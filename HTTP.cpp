@@ -7,9 +7,14 @@ String HTTP::request(String resource, String type, String params) const{
     
     Config config;
     WiFiService wifi;
+    EthernetService ethernet;
     int httpCode = 0;
     String response = "";
     String url = config.getUrl(); 
+
+    static int contTentativas = 0;           
+    const int tentMax = 10;
+
     
     resource.trim();
     resource.toLowerCase();
@@ -25,7 +30,7 @@ String HTTP::request(String resource, String type, String params) const{
         return "Tipo de requisição inválido";
     }
         
-    if (WiFi.status() == WL_CONNECTED) {
+    if (ethernet.isConnected() || WiFi.status() == WL_CONNECTED) {
       
         HTTPClient http;
       
@@ -68,10 +73,12 @@ String HTTP::request(String resource, String type, String params) const{
             else {
               response = http.getString();
             }
+            contTentativas = 0;
         }
         else{
             response = "[ERROR]";
             response.concat(httpCode);
+            contTentativas++;
         }
       
         if(config.isDebug()){
@@ -87,17 +94,29 @@ String HTTP::request(String resource, String type, String params) const{
             Serial.println("==================================");  
             Serial.println("[HTTP] Desconectado");
         }
-      
+        contTentativas++;
     }
+
+    
 
     if(config.isDebug()){
         Serial.println("==================================");  
         Serial.println("[HTTP] HTTP FINALIZADO: " + String(httpCode));
     }
+
+    if(config.isDebug()){
+        Serial.println("==================================");  
+        Serial.println("[HTTP] ETHERNET DESCONECTADO: " + String(httpCode) + " " + contTetativas);
+    }
     
     if(config.isDebug()){
         Serial.println("==================================");  
-        Serial.println("[HTTP] WIFI DESCONECTADO: " + String(httpCode));
+        Serial.println("[HTTP] WIFI DESCONECTADO: " + String(httpCode) + " " + contTetativas);
+    }
+
+    if (contTentativas >= tentMax) {
+        Serial.println("[HTTP] Reiniciando");
+        ESP.restart();
     }
 
     return response;

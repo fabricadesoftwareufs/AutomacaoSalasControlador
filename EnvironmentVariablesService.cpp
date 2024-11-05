@@ -13,6 +13,7 @@ unsigned long EnvironmentVariablesService::__lastTimeAttended;
 unsigned long EnvironmentVariablesService::__lastTimeLoadReservations;
 BLEServerService* __bleServerConfig;
 HTTPService __httpRequestService;
+EthernetService __ethernetService;
 WiFiService __wifiService;
 UtilsService __utilsService;
 Config __config;
@@ -235,8 +236,10 @@ void EnvironmentVariablesService::turnOnConditioner(){
   Serial.println(__monitoringConditioner.estado ? "true" : "false");
   Serial.println("[ENVIRONMENT_VARIABLES]: LIGANDO CONDICIONADOR");
 
-  if(WiFi.status() != WL_CONNECTED)
+
+  if (WiFi.status() != WL_CONNECTED && !__ethernetService.isConnected()) {
     return;
+}
 
   String codigos = __httpRequestService.getComandosIrByIdSalaAndOperacao(getUuidActuator(TYPE_CONDITIONER));
 
@@ -261,8 +264,9 @@ void EnvironmentVariablesService::turnOfConditioner(){
   Serial.println(__monitoringConditioner.estado ? "true" : "false");
   Serial.println("[ENVIRONMENT_VARIABLES]: DESLIGANDO CONDICIONADOR");
 
-  if(WiFi.status() != WL_CONNECTED)
+  if (WiFi.status() != WL_CONNECTED && !__ethernetService.isConnected()) {
     return;
+}
     
   String codigos = __httpRequestService.getComandosIrByIdSalaAndOperacao(getUuidActuator(TYPE_CONDITIONER));
 
@@ -323,8 +327,9 @@ void EnvironmentVariablesService::awaitsReturn()
 
 void EnvironmentVariablesService::checkTimeToLoadReservations()
 {
-  if(WiFi.status() != WL_CONNECTED)   
+  if (WiFi.status() != WL_CONNECTED && !__ethernetService.isConnected()) {
     return;
+}
 
   String currentTime = __httpRequestService.getTime(GET_TIME);
 

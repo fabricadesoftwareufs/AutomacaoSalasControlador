@@ -13,6 +13,7 @@
 #include "EmonLib.h"
 #include <ArduinoJson.h>
 #include "Controller.h"
+#include "EthernetService.h "
 #include "WiFiService.h"
 #include "HTTP.h"
 #include "Structs.h"

@@ -13,12 +13,12 @@ std::mutex Config::__envVariablesMutex;
 
 Config::Config(){
     __tokenApp  = "594ac3eb82b5080393ad5c426f61c1ed5ac53f90e1abebc15316888cf1c8f5fe";
-    __url       = "http://marcosdosea-002-site2.itempurl.com/api";
+    __url       = "http://192.168.0.175:51030/api";
     __debug     = true;
     //__ssid      = "TransmissaoAula";
     //__password  = "#ufstransmissao#";
-    __ssid      = "Josiely";
-    __password  = "JOIBSN12";
+    __ssid      = "Corporativo";
+    __password  = "Cbs@2020";
     //__ssid      = "Apartamento 201-2.4";
     //__password  = "Ald50983021";
     __basetime  = 180000;
@@ -111,4 +111,3 @@ void Config::unlockEnvVariablesMutex()
 {
   __envVariablesMutex.unlock();
 }
-
