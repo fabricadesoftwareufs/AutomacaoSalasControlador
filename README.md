@@ -54,6 +54,7 @@ Then it must install the libraries
 - NTPClient v3.2.0
 - Task by Makuna v1.1.6
 - PubSubClient by Nick O'Leary v2.8
+- EmonLib 1.1.0
 
 Board Manager
 
