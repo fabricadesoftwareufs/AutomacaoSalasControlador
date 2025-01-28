@@ -6,7 +6,12 @@
 #include <BLEUtils.h>
 #include <BLE2902.h>
 #include <Arduino.h>
-#include <String>
+
+#ifdef _WIN32
+    #include <String> // Para Windows
+#else
+    #include <string.h> // Para Linux
+#endif
 #include "Global.h"
 #include "EquipmentService.h"
 

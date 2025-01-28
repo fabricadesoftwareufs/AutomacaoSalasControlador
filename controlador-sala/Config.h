@@ -6,13 +6,14 @@
 #include <Arduino.h>
 #ifdef _WIN32
     #include <String> // Para Windows
+    #include <Vector>
 #else
     #include <string.h> // Para Linux
+    #include <vector>
 #endif
 
 #include <WiFi.h>
 #include <HTTPClient.h>
-#include <Vector>
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
 #include <EmonLib.h>

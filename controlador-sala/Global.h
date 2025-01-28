@@ -1,7 +1,12 @@
 #ifndef GlobalESP_h
 #define GlobalESP_h
 
-#include <String>
+#ifdef _WIN32
+    #include <String> // Para Windows
+#else
+    #include <string.h> // Para Linux
+#endif
+
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
 extern String COMMAND;
