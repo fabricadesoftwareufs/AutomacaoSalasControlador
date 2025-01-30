@@ -1,0 +1,19 @@
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = docs
+PROJECT_NAME           = "SalasUFS-Microcontrolador"
+USE_MDFILE_AS_MAINPAGE = README.md
+SOURCE_BROWSER         = YES
+HTML_COLORSTYLE        = DARK
+HAVE_DOT               = YES
+UML_LOOK               = YES
+EXTENSION_MAPPING      = .ino=C
+TIMESTAMP              = YES
+CASE_SENSE_NAMES       = YES
+SORT_BRIEF_DOCS        = YES
+FILE_PATTERNS          = *.ino \
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_PRIV_VIRTUAL   = YES
+EXTRACT_PACKAGE        = YES
+EXTRACT_STATIC         = YES
+INTERNAL_DOCS          = YES
