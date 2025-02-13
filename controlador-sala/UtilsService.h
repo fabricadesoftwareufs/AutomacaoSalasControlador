@@ -10,8 +10,8 @@
 #define END_DATA "END_DATA" 
 
 #define TYPE_CONTROLLER 1
-#define TYPE_ACTUATOR 2
-#define TYPE_SENSOR 3
+#define TYPE_SENSOR 2
+#define TYPE_ACTUATOR 3
 #define MAX_LENGTH_PACKET 500
 
 class UtilsService
