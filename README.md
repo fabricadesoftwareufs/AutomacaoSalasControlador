@@ -46,7 +46,7 @@ Arduino IDE
 
 Then it must install the libraries
 
-- Adafruit Unified Sensor v1.1.4
+- Adafruit Unified Sensor v1.1.15
 - ArduinoJson v6.19.4
 - DHT sensor library v1.4.3
 - ESP32 BLE Arduino v1.0.1
