@@ -57,8 +57,8 @@ void HTTPService::getInfoHardware(HardwareRecord &record)
         {
 
             record.id = doc["result"]["id"].as<int>();
-            record.token = doc["result"]["token"].as<char *>();
-            record.uuid = doc["result"]["uuid"].as<char *>();
+            record.token = doc["result"]["token"].as<const char *>();
+            record.uuid = doc["result"]["uuid"].as<const char *>();
             record.salaId = doc["result"]["salaId"].as<int>();
 
             return;
@@ -69,7 +69,7 @@ void HTTPService::getInfoHardware(HardwareRecord &record)
             {
                 Serial.println("==================================");
                 Serial.print("[HTTPService] Mensagem: ");
-                Serial.println(doc["message"].as<char *>());
+                Serial.println(doc["message"].as<const char *>());
             }
             return;
         }
@@ -177,7 +177,7 @@ std::vector<struct HardwareRecord> HTTPService::getHardwares(struct HardwareReco
             {
                 Serial.println("==================================");
                 Serial.print("[HTTPService] Mensagem: ");
-                Serial.println(doc["message"].as<char *>());
+                Serial.println(doc["message"].as<const char *>());
             }
         }
     }
@@ -215,10 +215,10 @@ struct Solicitacao HTTPService::deserializeSolicitacao(int idSolicitacao, String
     deserializeJson(doc, payload);
 
     solicitacao.id = idSolicitacao;    
-    solicitacao.code = doc["code"].as<char *>();
-    solicitacao.type = doc["type"].as<char *>();
-    solicitacao.uuid = doc["uuid"].as<char *>();
-    solicitacao.acting = doc["acting"].as<char *>();
+    solicitacao.code = doc["code"].as<const char *>();
+    solicitacao.type = doc["type"].as<const char *>();
+    solicitacao.uuid = doc["uuid"].as<const char *>();
+    solicitacao.acting = doc["acting"].as<const char *>();
  
    return solicitacao;
 }
@@ -272,7 +272,7 @@ bool HTTPService::getMaster(struct HardwareRecord hardware, String &master)
 
         if (doc["httpCode"].as<int>() == 200)
         {
-            master = doc["result"]["uuid"].as<char *>();
+            master = doc["result"]["uuid"].as<const char *>();
 
             return true;
         }
@@ -282,7 +282,7 @@ bool HTTPService::getMaster(struct HardwareRecord hardware, String &master)
             {
                 Serial.println("==================================");
                 Serial.print("[HTTPService] Mensagem: ");
-                Serial.println(doc["message"].as<char *>());
+                Serial.println(doc["message"].as<const char *>());
             }
             return false;
         }
@@ -372,7 +372,7 @@ std::vector<struct Reserva> HTTPService::getReservationsToday() {
             {
                 Serial.println("==================================");
                 Serial.print("[HTTPService] Mensagem: ");
-                Serial.println(doc["message"].as<char *>());
+                Serial.println(doc["message"].as<const char *>());
             }
         }
     }
@@ -475,7 +475,7 @@ struct Monitoramento HTTPService::getMonitoringByIdSalaAndEquipamento(String tip
             {
                 Serial.println("==================================");
                 Serial.print("[HTTPService] Mensagem: ");
-                Serial.println(doc["message"].as<char *>());
+                Serial.println(doc["message"].as<const char *>());
             }
         }
     }
@@ -601,7 +601,7 @@ String HTTPService::getComandosIrByIdSalaAndOperacao(String uuid) {
             {
                 Serial.println("==================================");
                 Serial.print("[HTTPService] Mensagem: ");
-                Serial.println(doc["message"].as<char *>());
+                Serial.println(doc["message"].as<const char *>());
             }
         }
     }
@@ -669,7 +669,7 @@ struct std::vector<Solicitacao> HTTPService::getSolicitacao(String tipoEquipamen
             {
                 Serial.println("==================================");
                 Serial.print("[HTTPService] Mensagem: ");
-                Serial.println(doc["message"].as<char *>());
+                Serial.println(doc["message"].as<const char *>());
             }
         }
     }
