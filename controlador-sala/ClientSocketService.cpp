@@ -130,10 +130,10 @@ MonitoringRequest ClientSocketService::deserealizeObject(String payload)
     DynamicJsonDocument doc(2048);
     deserializeJson(doc, payload);
     
-    request.type = doc["type"].as<char *>();
-    request.code = doc["code"].as<char *>();
-    request.uuid = doc["uuid"].as<char *>();
-    request.acting = doc["acting"].as<char *>();
+    request.type = doc["type"].as<const char *>();
+    request.code = doc["code"].as<const char *>();
+    request.uuid = doc["uuid"].as<const char *>();
+    request.acting = doc["acting"].as<const char *>();
     
     return request;
 }
